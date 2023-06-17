@@ -168,7 +168,16 @@ document.addEventListener("keydown", (e) => {
 });
 
 popup.onclick = (event) => {
-	if (event.path[0].className.includes("popup-container")) {
+	if (event.target.className.includes("popup-container")) {
 		close_popup();
 	}
 };
+
+document.addEventListener("click", (event) => {
+	if (
+		!event.target.closest(".popup-container") &&
+		!event.target.closest(".skill")
+	) {
+		close_popup();
+	}
+});
